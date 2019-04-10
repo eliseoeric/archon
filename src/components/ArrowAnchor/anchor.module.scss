@@ -1,0 +1,14 @@
+
+
+@import "../../styles/definitions/mixins";
+@import "../../styles/definitions/fonts";
+
+.call_to_action {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  @include font_loader($primary-family, 9, 'n');
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+  text-decoration: none;
+}

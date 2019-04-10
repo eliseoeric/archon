@@ -1,0 +1,296 @@
+@import "../../styles/definitions/breakpoints";
+@import "../../styles/definitions/mixins";
+@import "../../styles/definitions/fonts";
+@import "../../styles/definitions/colors";
+@import "../../styles/definitions/keyframes";
+
+$button_height: 60px;
+
+.inverse {
+  .nav_link {
+    @media (#{$min_tablets}) {
+      color: rgba($white, 0.75);
+      text-shadow: 0 0 30px $gray-darkest;
+
+      &:hover, &.active {
+        color: $white;
+      }
+    }
+
+    &__login {
+      svg, g {
+        stroke: $white;
+      }
+    }
+  }
+}
+
+.container {
+  line-height: 42px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right_box {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+}
+
+.center_box {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.left_box {
+  position: relative;
+  z-index: 100;
+}
+
+.logo_box {
+  width: 137px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+
+  @media (#{$min_tablets}) {
+    height: 100px;
+    
+  }
+}
+
+.logo_image {
+  max-width: 100%;
+  max-height: 30px;
+  line-height: $button_height;
+  height: 100%;
+
+  @media (#{$min_tablets}) {
+    max-height: 35px;
+    line-height: 100px;
+  }
+}
+
+.logo_text {
+  @include font_loader($primary-family, 3, 'n');
+  position: relative;
+  top: 2px;
+  margin-left: 11px;
+  color: white;
+  font-size: 16px;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  &__black {
+    color: $black;
+
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+.link {
+  @include font_loader($primary-family-bold, 600, 'n');
+  margin-right: 30px;
+  text-decoration: none;
+  color: white;
+
+  &:hover, &:focus, &:active, &:visited {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.login_icon {
+  margin-left: 5px;
+}
+
+.nav_list {
+  @include clear_list;
+}
+
+.nav_item {
+  display: inline-block;
+  transition: all .4s .4s ease-out;
+  width: 100%;
+  margin: 0;
+
+  @media (#{$min_tablets}) {
+    width: auto;
+    margin: 0 2rem 0 0;
+    transform: none;
+  }
+  // Fix the "double-tap" issue on iOs
+  @media (hover) {
+    &:hover {
+      .header__nav_link {
+        &:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.nav_link {
+  @include font_loader($primary-family, 5, 'n');
+  position: relative;
+  line-height: 1.6;
+  color: $gray-darkest;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+
+  &__login {
+    color: $gray-dark;
+  }
+
+  &:hover, &.active {
+    color: $red;
+  }
+
+  &__white:before {
+    background-color: white;
+  }
+
+  &__white, &__white:hover, &__white:focus, &__white:active, &__white:visited {
+    color: $white;
+  }
+
+  &__login {
+    svg, g {
+      stroke: $gray-dark;
+    }
+  }
+}
+
+.burger_button {
+  position: relative;
+  vertical-align: middle;
+  height: 23px;
+  width: 23px;
+  text-indent: -9999px;
+  border-color: transparent;
+  background-color: transparent;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    background: url(../../images/i--burger--white.svg) no-repeat center / 100% auto;
+  }
+
+  &__dark:before {
+    background: url(../../images/i--burger--gray.svg) no-repeat center / 100% auto;
+  }
+
+  &.burger__state_opened {
+    position: absolute;
+    right: 0;
+    top: 16px;
+
+    &:before {
+      background: url(../../images/i--cross--gray.svg) no-repeat center / 100% auto;
+    }
+  }
+}
+
+.item__desktop {
+  @media (#{$max_tablets}) {
+    display: none;
+  }
+}
+
+.item__mobile {
+  @media (#{$min_tablets}) {
+    display: none;
+  }
+}
+
+.state_opened {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 100;
+  top: 0;
+  left: 0;
+
+  
+  .right_box {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .left_box {
+    display: none;
+  }
+
+  .nav_list {
+    position: absolute;
+    width: 100%;
+    display: block;
+    margin-top: 4.5rem;
+    text-align: center;
+    top: 40%;
+    margin-top: -40%;
+  }
+
+  .nav_item {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+
+    &.investor_login {
+      margin-top: 110px;
+      color: $gray-dark;
+
+      svg, g {
+        height: 1rem;
+        width: 1rem;
+        stroke: $gray-dark;
+      }
+    }
+
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        //animation-delay:
+        animation: fade_in_bottom 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) #{100 * ($i - 4)}ms both;
+      }
+    }
+  }
+}
+
+.site__header {
+  width: 100%;
+  z-index: 100;
+  background-color: $white;
+  min-height: $button_height;
+
+  &.state_fixed {
+    animation: fade_in_bottom 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    position: fixed;
+    top: 0;
+    box-shadow: 3px 3px 1rem rgba(0,0,0, 0.15);
+
+    .logo_box {
+      height: 60px;
+    }
+  }
+}

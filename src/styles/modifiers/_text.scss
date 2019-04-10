@@ -1,0 +1,116 @@
+@import "../definitions/colors";
+@import "../definitions/mixins";
+@import "../definitions/fonts";
+@import "../definitions/breakpoints";
+
+@each $color-name, $color-variable in $colors {
+  // Text Color
+  .text_#{"" + $color-name} {
+    color: $color-variable;
+  }
+}
+
+.text-shadow {
+  text-shadow: 0 0 30px $gray-dark;
+}
+
+.link_undecorated {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1, .h1, h2, .h2,
+h3, .h3, h4, .h4 {
+  transition: all 0.25s ease-in-out;
+}
+
+h1, .h1 {
+  @include font_loader($primary-family, 7, 'n');
+  font-size: 1.3rem;
+  padding: 1em 0;
+  @media (#{$min_tablets}) {
+    font-size: 3rem;
+  }
+}
+
+h2, .h2 {
+  @include font_loader($primary-family, 7, 'n');
+  font-size: 1.2rem;
+  padding: 1em 0;
+  @media (#{$min_tablets}) {
+    font-size: 2.4rem;
+  }
+}
+
+h3, .h3 {
+  @include font_loader($primary-family, 5, 'n');
+  font-size: 1rem;
+  padding: 1em 0;
+  @media (#{$min_tablets}) {
+    font-size: 1.6rem;
+  }
+}
+
+h4, .h4 {
+  @include font_loader($primary-family, 5, 'n');
+  font-size: 1rem;
+  padding: 1em 0;
+  color: $primary;
+  @media (#{$min_tablets}) {
+    font-size: 1.1rem;
+  }
+}
+
+h5, .h5 {
+  @include font_loader($primary-family, 3, 'n');
+  font-size: 1rem;
+  padding: 1em 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: $primary;
+  @media (#{$min_tablets}) {
+    font-size: 0.85rem;
+  }
+}
+
+h6, .h6 {
+  @include font_loader($primary-family, 7, 'n');
+  font-size: 1rem;
+  padding: 1em 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  @media (#{$min_tablets}) {
+    font-size: 0.85rem;
+  }
+}
+
+.styled_title {
+  @include font_loader($alt-family, 7, 'n');
+  font-size: 1.5rem;
+  padding: 0 0 1.2rem;
+  line-height: 1.3;
+
+  @media (#{$min_tablets}) {
+      font-size: 2.3rem;
+  }    
+
+  &:empty {
+      padding: 0;
+      display: none;
+  }
+}
+
+.remark-content {
+  margin-bottom: 1.5rem;
+  line-height: 1.2rem;
+
+  p {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.text-half-spaced {
+  line-height: 1.5rem;
+}

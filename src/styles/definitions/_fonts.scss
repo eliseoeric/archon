@@ -1,0 +1,18 @@
+$fonts_path: "../fonts/";
+
+// Sizes
+$base-font-size: 14px;
+$ratio: 1.414;
+
+// Fonts
+// @font-face {
+//   font-family: 'Gotham-Light';
+//   src: url(#{$fonts_path}Gotham-Light-Regular.woff2) format('woff2'),
+//   url(#{$fonts_path}Gotham-Light-Regular.woff) format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+$primary-family: 'museo-sans', sans-serif;
+$primary-family-bold: $primary-family;
+$alt-family: $primary-family;
